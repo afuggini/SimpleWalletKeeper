@@ -1,4 +1,5 @@
-import { useReducer, useState } from 'react'
+import type { NextApiRequest } from 'next'
+import { Reducer, SyntheticEvent, useReducer, useState } from 'react'
 import axios from 'axios'
 import { withSessionSsr } from '@/withSession'
 import Layout from '@/components/Layout'
@@ -16,7 +17,7 @@ type Props = {
 }
 
 export default function Home({ username, wallets }: Props) {
-  const [state, dispatch] = useReducer(reducer, {
+  const [state, dispatch] = useReducer<Reducer<any, any>>(reducer, {
     ...initialState,
     username,
     wallets: wallets.reverse()
@@ -41,7 +42,7 @@ export default function Home({ username, wallets }: Props) {
     }
   }
 
-  const onClickCreate = async (e) => {
+  const onClickCreate = async (e: SyntheticEvent) => {
     e.preventDefault()
     const newWallet = await axios.post('/api/wallet/new')
     dispatch(addWallet(newWallet.data))
@@ -70,7 +71,7 @@ export default function Home({ username, wallets }: Props) {
 }
 
 export const getServerSideProps = withSessionSsr(
-  ({ req }) => ({
+  ({ req }: { req: NextApiRequest }) => ({
     props: {
       username: req.session.user?.username || null,
       wallets: req.session.wallets || []

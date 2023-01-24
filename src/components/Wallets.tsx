@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { SyntheticEvent, useState } from 'react'
 import styles from './Wallets.module.scss'
 import axios from 'axios'
 
@@ -26,12 +26,12 @@ export default function Wallets({ wallets }: Props) {
     }
   }
 
-  const onShowKeyClick = (privateKey: string) => (e) => {
+  const onShowKeyClick = (privateKey: string) => (e: SyntheticEvent) => {
     e.preventDefault()
     alert(privateKey)
   }
 
-  const onShowBalanceClick = (address: string) => (e) => {
+  const onShowBalanceClick = (address: string) => (e: SyntheticEvent) => {
     e.preventDefault()
     if (isFetching) return
     getBalance(address)

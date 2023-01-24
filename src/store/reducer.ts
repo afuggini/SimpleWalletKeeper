@@ -1,12 +1,7 @@
 import { ADD_WALLET, LOGIN, LOGOUT } from './actions'
 import initialState from './initialState';
 
-type Action = {
-  type: string
-  payload: any
-}
-
-export default function reducer (state = initialState, action: Action) {
+export default function reducer (state = initialState, action: any) {
   const { type, payload } = action;
 
   switch (type) {

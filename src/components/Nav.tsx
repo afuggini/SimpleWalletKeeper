@@ -1,6 +1,5 @@
-import { useContext } from 'react'
+import { SyntheticEvent, useContext } from 'react'
 import axios from 'axios'
-import Link from 'next/link'
 import StoreContext from '@/store/StoreContext'
 import styles from './Nav.module.scss'
 import { logout } from '@/store/actions'
@@ -8,7 +7,7 @@ import { logout } from '@/store/actions'
 export default function Nav() {
   const [state, dispatch] = useContext(StoreContext)
 
-  const onLogout = async (e) => {
+  const onLogout = async (e: SyntheticEvent) => {
     e.preventDefault()
     await axios.get('/api/logout')
     dispatch(logout())
