@@ -9,10 +9,11 @@ import StoreContext from '@/store/StoreContext'
 import reducer from '@/store/reducer'
 import initialState from '@/store/initialState'
 import { addWallet, login } from '@/store/actions'
+import { User, Wallet } from '@/types'
 
 type Props = {
   username: string | null
-  wallets: any[]
+  wallets: Wallet[]
 }
 
 export default function Home({ username, wallets }: Props) {
@@ -23,7 +24,7 @@ export default function Home({ username, wallets }: Props) {
   })
   const [errorMessage, setErrorMessage] = useState('')
 
-  const onSignIn = async ({ username, password }: { username: string; password: string }) => {
+  const onSignIn = async ({ username, password }: User) => {
     try {
       setErrorMessage('')
       await axios.post('/api/login', { username, password })

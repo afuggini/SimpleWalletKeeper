@@ -2,7 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { withSessionApi } from '@/withSession'
 
-async function handler(
+async function handler (
   req: NextApiRequest,
   res: NextApiResponse<any>
 ) {

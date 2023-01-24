@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { ethers } from 'ethers'
 import { withSessionApi } from '@/withSession'
 
-async function handler(
+async function handler (
   req: NextApiRequest,
   res: NextApiResponse<string>
 ) {

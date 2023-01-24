@@ -1,8 +1,10 @@
+import { Wallet } from '@/types'
+
 export const ADD_WALLET = 'ADD_WALLET'
 export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
 
-export const addWallet = (wallet: { address: string; privateKey: string; }) => ({
+export const addWallet = (wallet: Wallet) => ({
   type: ADD_WALLET,
   payload: { wallet }
 })

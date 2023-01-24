@@ -1,9 +1,4 @@
-type UserDB = {
-  [u: string]: {
-    username: string
-    password: string
-  }
-}
+import { UserDB } from '@/types'
 
 export const users: UserDB = {
   'admin': {

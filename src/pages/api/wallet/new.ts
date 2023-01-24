@@ -1,15 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { ethers } from 'ethers'
 import { withSessionApi } from '@/withSession'
+import { Wallet } from '@/types'
 
-type Data = {
-  address: string
-  privateKey: string
-}
-
-async function handler(
+async function handler (
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<Wallet>
 ) {
   if (req.method !== 'POST' || !req.session.user) {
     return res.status(404)
