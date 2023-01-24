@@ -7,27 +7,21 @@ async function handler(
   res: NextApiResponse<any>
 ) {
   if (req.method !== 'POST') {
-    res.redirect('/')
-    return
+    return res.redirect('/')
   }
-
   if (!req.body || !req.body.username || !req.body.password) {
-    res.status(401).send({ error: 'Missing username and/or password' })
-    return
+    return res.status(401).send({ error: 'Missing username and/or password' })
   }
 
   const matchingUser = users[req.body.username]
-
   if (!matchingUser || matchingUser.password !== req.body.password) {
-    res.status(401).send({ error: 'Incorrect username or password' })
-    return
+    return res.status(401).send({ error: 'Incorrect username or password' })
   }
-
-  req.session.user = matchingUser
 
   // Initializes user with empty wallet list
   // while using session for storage purposes
   req.session.wallets = []
+  req.session.user = matchingUser
 
   await req.session.save()
   res.send({ username: matchingUser.username })

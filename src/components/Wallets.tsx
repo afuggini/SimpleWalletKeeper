@@ -18,7 +18,7 @@ export default function Wallets({ wallets }: Props) {
     try {
       setIsFetching(address)
       const { data: balance } = await axios.get(`/api/wallet/balance/${address}`)
-      alert(balance)
+      alert(`Address balance: ${balance}`)
     } catch (error) {
       console.error(error)
     } finally {

@@ -1,11 +1,10 @@
-import type { NextApiRequest } from 'next'
 import { Reducer, SyntheticEvent, useReducer, useState } from 'react'
+import type { NextApiRequest } from 'next'
 import axios from 'axios'
 import { withSessionSsr } from '@/withSession'
 import Layout from '@/components/Layout'
 import SignInForm from '@/components/SignInForm'
 import Wallets from '@/components/Wallets'
-
 import StoreContext from '@/store/StoreContext'
 import reducer from '@/store/reducer'
 import initialState from '@/store/initialState'
@@ -27,18 +26,14 @@ export default function Home({ username, wallets }: Props) {
   const onSignIn = async ({ username, password }: { username: string; password: string }) => {
     try {
       setErrorMessage('')
-      const response = await axios.post('/api/login', {
-        username,
-        password
-      })
+      await axios.post('/api/login', { username, password })
       dispatch(login(username))
     } catch (error) {
-      if (axios.isAxiosError(error)) {
-        setErrorMessage(error.response?.data.error)
-      } else {
-        setErrorMessage('Internal server error. Please try again.')
-        return 'An unexpected error occurred'
-      }
+      setErrorMessage(
+        axios.isAxiosError(error)
+          ? error.response?.data.error
+          : 'Internal server error. Please try again.'
+      )
     }
   }
 
@@ -54,7 +49,7 @@ export default function Home({ username, wallets }: Props) {
         {state.username ? (
           <>
             <div className="flex justify-between items-center mb-3 pb-3 border-b-2">
-              <h1 className="">My Wallets</h1>
+              <h1>My Wallets</h1>
               <div>
                 ➕ <a href="#" onClick={onClickCreate}>Create New Wallet</a>
               </div>

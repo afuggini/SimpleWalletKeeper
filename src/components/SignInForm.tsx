@@ -4,7 +4,7 @@ export default function SignInForm({
   errorMessage,
   onSubmit
 }: {
-  errorMessage: string
+  errorMessage?: string
   onSubmit: (props: { username: string; password: string }) => void
 }) {
   const [username, setUsername] = useState('')
@@ -24,6 +24,7 @@ export default function SignInForm({
       <div className="mb-3">
         <div className="mb-3">
           <input
+            data-testid="username"
             placeholder="username"
             type="text"
             onChange={(e) => setUsername(e.target.value)}
@@ -32,6 +33,7 @@ export default function SignInForm({
         </div>
         <div className="mb-3">
           <input
+            data-testid="password"
             placeholder="password"
             type="password"
             onChange={(e) => setPassword(e.target.value)}
@@ -39,7 +41,13 @@ export default function SignInForm({
           />
         </div>
         <div>
-          <button onClick={onSubmitClick} disabled={!username || !password}>Sign In</button>
+          <button
+            data-testid="button"
+            disabled={!username || !password}
+            onClick={onSubmitClick}
+          >
+            Sign In
+          </button>
         </div>
       </div>
     </div>
