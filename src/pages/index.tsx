@@ -36,8 +36,8 @@ export default function Home({ username, wallets }: Props) {
       if (axios.isAxiosError(error)) {
         setErrorMessage(error.response?.data.error)
       } else {
-        setErrorMessage('Internal server error. Please try again.');
-        return 'An unexpected error occurred';
+        setErrorMessage('Internal server error. Please try again.')
+        return 'An unexpected error occurred'
       }
     }
   }
@@ -53,9 +53,11 @@ export default function Home({ username, wallets }: Props) {
       <Layout>
         {state.username ? (
           <>
-            <h1 className="mb-3">My Wallets</h1>
-            <div className="mb-3 text-right">
-              ➕ <a href="#" onClick={onClickCreate}>Create New Wallet</a>
+            <div className="flex justify-between items-center mb-3 pb-3 border-b-2">
+              <h1 className="">My Wallets</h1>
+              <div>
+                ➕ <a href="#" onClick={onClickCreate}>Create New Wallet</a>
+              </div>
             </div>
             <Wallets wallets={state.wallets} />
           </>

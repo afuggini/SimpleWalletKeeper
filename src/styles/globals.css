@@ -18,13 +18,11 @@
   }
 }
 
-@import url(normalize);
-
 body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   padding: 0 30px;
 }
 
 button {
-  @apply text-black bg-slate-300 px-4 py-2;
+  @apply text-black bg-cyan-200 px-4 py-2;
 }

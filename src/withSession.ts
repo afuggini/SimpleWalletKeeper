@@ -2,7 +2,9 @@ import { withIronSessionApiRoute, withIronSessionSsr } from 'iron-session/next'
 
 const cookieOptions = {
   cookieName: 'walletsession',
-  password: 'some_long_and_secure_password_goes_here', // NOTE: Shoud go on a dev env for security reasons
+
+  // NOTE: Should go on dev env for more security
+  password: 'some_long_and_secure_password_goes_here'
 }
 
 export function withSessionApi(fn: any) {

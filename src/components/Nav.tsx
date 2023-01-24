@@ -18,6 +18,9 @@ export default function Nav() {
       {state?.username && (
         <ul className={styles.nav}>
           <li>
+            Welcome, {state.username}!
+          </li>
+          <li>
             <a href="#" onClick={onLogout}>Logout</a>
           </li>
         </ul>

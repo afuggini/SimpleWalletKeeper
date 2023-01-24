@@ -1,8 +1,8 @@
 import { ADD_WALLET, LOGIN, LOGOUT } from './actions'
-import initialState from './initialState';
+import initialState from './initialState'
 
 export default function reducer (state = initialState, action: any) {
-  const { type, payload } = action;
+  const { type, payload } = action
 
   switch (type) {
     case ADD_WALLET:

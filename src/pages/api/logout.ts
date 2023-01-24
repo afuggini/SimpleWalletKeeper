@@ -1,6 +1,6 @@
 
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { withSessionApi } from "@/withSession"
+import { withSessionApi } from '@/withSession'
 
 async function handler(
   req: NextApiRequest,

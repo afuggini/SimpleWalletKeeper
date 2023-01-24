@@ -1,4 +1,4 @@
-import { SyntheticEvent, useState } from 'react';
+import { SyntheticEvent, useState } from 'react'
 
 export default function SignInForm({
   errorMessage,
@@ -7,8 +7,8 @@ export default function SignInForm({
   errorMessage: string
   onSubmit: (props: { username: string; password: string }) => void
 }) {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
   const onSubmitClick = (e: SyntheticEvent) => {
     e.preventDefault()
@@ -17,7 +17,7 @@ export default function SignInForm({
 
   return (
     <div>
-      <h1 className="mb-3">Sign In</h1>
+      <h1 className="mb-3 pb-3 border-b-2">Sign In</h1>
       {errorMessage && (
         <div className="mb-3 text-red-700">{errorMessage}</div>
       )}

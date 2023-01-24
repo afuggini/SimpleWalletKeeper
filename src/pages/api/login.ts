@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { withSessionApi } from "@/withSession"
+import { withSessionApi } from '@/withSession'
 import { users } from '@/mockData'
 
 async function handler(

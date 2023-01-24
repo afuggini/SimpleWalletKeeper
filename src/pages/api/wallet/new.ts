@@ -12,8 +12,7 @@ async function handler(
   res: NextApiResponse<Data>
 ) {
   if (req.method !== 'POST' || !req.session.user) {
-    res.status(404)
-    return
+    return res.status(404)
   }
 
   const { address, privateKey } = ethers.Wallet.createRandom()

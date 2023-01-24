@@ -39,25 +39,29 @@ export default function Wallets({ wallets }: Props) {
 
   return (
     <div>
-      <ul className={styles.walletList}>
-        {wallets?.map(({ address, privateKey }) => (
-          <li key={address}>
-            <div>{address}</div>
-            <ul className="flex">
-              <li className="mr-2">
-                🔑 <a href="#" onClick={onShowKeyClick(privateKey)}>show key</a>
-              </li>
-              <li className="mr-2">
-                {isFetching === address ? (
-                  <span className="text-gray-400">🔍 fetching...</span>
-                ) : (
-                  <>🔍 <a href="#" onClick={onShowBalanceClick(address)}>show balance</a></>
-                )}
-              </li>
-            </ul>
-          </li>
-        ))}
-      </ul>
+      {wallets?.length ? (
+        <ul className={styles.walletList}>
+          {wallets?.map(({ address, privateKey }) => (
+            <li key={address}>
+              <div>{address}</div>
+              <ul className="flex">
+                <li className="mr-2">
+                  🔑 <a href="#" onClick={onShowKeyClick(privateKey)}>show key</a>
+                </li>
+                <li className="mr-2">
+                  {isFetching === address ? (
+                    <span className="text-gray-400">🔍 fetching...</span>
+                  ) : (
+                    <>🔍 <a href="#" onClick={onShowBalanceClick(address)}>show balance</a></>
+                  )}
+                </li>
+              </ul>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <div>No wallets yet.</div>
+      )}
     </div>
   )
 }
