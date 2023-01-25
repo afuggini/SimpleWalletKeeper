@@ -10,12 +10,12 @@ describe('SignInForm', () => {
     mockSubmit.mockClear()
   })
 
-  it('renders form', () => {
+  it('should renders form', () => {
     render(<SignInForm onSubmit={mockSubmit} />);
     expect(screen.getByTestId('button')).toBeInTheDocument()
   })
 
-  it('submits form content when clicking button', () => {
+  it('should submit form content when clicking button', () => {
     render(<SignInForm onSubmit={mockSubmit} />);
     const USERNAME = 'someusername'
     const PASSWORD = '123456'

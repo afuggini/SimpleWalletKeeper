@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { ethers } from 'ethers'
-import { withSessionApi } from '@/withSession'
+import { withSessionApi } from '@/lib/withSession'
 import { Wallet } from '@/types'
 
 async function handler (

@@ -1,7 +1,7 @@
 import { Reducer, SyntheticEvent, useReducer, useState } from 'react'
 import type { NextApiRequest } from 'next'
 import axios from 'axios'
-import { withSessionSsr } from '@/withSession'
+import { withSessionSsr } from '@/lib/withSession'
 import Layout from '@/components/Layout'
 import SignInForm from '@/components/SignInForm'
 import Wallets from '@/components/Wallets'
